@@ -1,17 +1,43 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
 <head>
     <title>MovieApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'movieApp/css/style.css' %}">
 </head>
 
 <body>
+    <div class="nav-bar">
+        <nav>
+            <div class="nav-logo">
+                <a href=" {% url 'home_page' %} ">The coolest movies</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="">Home</a></li>
+                <li><a href="">Categories</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </nav>
+    </div>
+        
+    <form class="search-form" action="" name="search">
+        <input type="text" name="query" value="{{ request.GET.query }}">
+        <input type="submit" value="search">
+    </form> <hr>
+    
+    <div class="movies-flex-box">
 
-    <h1>works well</h1>
+        {% for movie in search_result %}
+        <div class="movies">
+            <h3>{{ movie.fields.Name }}</h3>
+            <p>{{ movie.fields.Notes }}</p>
+            <img src="{{ movie.fields.Pictures.0.url }}" alt="">    
+        </div>
+        {% endfor %}
 
-    <form action="">
-        <input type="text">
-        <input type="submit">
-    </form>
+    </div>
 
 </body>
 </html>

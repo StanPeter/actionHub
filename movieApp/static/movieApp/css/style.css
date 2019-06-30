@@ -1,0 +1,152 @@
+body {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.nav-bar {
+    width: 100%;
+    height: 80px;
+    background-color: #333;
+    margin: 10px 5px 40px;
+}
+nav {
+
+}
+.nav-logo {
+    float: left;
+    font-size: 35px;
+}
+.nav-logo a{
+    text-decoration: none;
+    color: rgb(199, 70, 70);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 70px;
+    padding-left: 10px;
+}
+.nav-menu li{
+    list-style: none;
+    margin-right: 20px;
+}
+.nav-menu li a{
+    float: right;
+    font-size: 28px;
+    color: rgb(199, 70, 70);
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 60px;
+}
+.nav-menu li a:hover {
+    color: rgb(117, 181, 192);
+}
+.search-form {
+    padding-bottom: 30px; 
+}
+.movies-flex-box {
+    display: flex;
+}
+.movies {
+    flex-wrap: wrap;
+}
+.movies img{
+    height: 500px;
+    width: 350px;
+}
+/*
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(https://banner2.kisspng.com/20180320/gue/kisspng-cinematography-film-photography-seat-hd-png-transparent-background-movie-theatre-5ab19541e1d9f5.1941890415215875219251.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding:0 25px;
+    font-size: 18px;
+    line-height: 30px;
+    position: relative;
+    z-index: 1; 
+}
+.nav-menu li {
+    list-style: none;
+}
+.nav-menu li a:hover {
+    background: tomato;
+    color: #fff;
+}
+.nav-bar {
+    margin-bottom: 50px;
+    background-color: rgb(41, 33, 33);
+}
+.nav-bar {
+    padding-top: 25px;
+}
+nav {
+    position: relative;
+    padding: 10px 20px 10px 10px;
+    text-align: right;
+    z-index: 1;
+    background: #333;
+    margin: 0 auto;
+    width: calc(100% - 60px);
+}
+nav::before {
+    position: relative;
+    content: '';
+    left: 0;
+    top: 100%;
+    border-top: 10px solid #333;
+    border-right: 10px solid #333;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+nav::after {
+    right: 0;
+    top: 100%;
+    position: relative;
+    content: '';
+    border-top: 10px solid #333;
+    border-right: 10px solid #333;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+.logo{
+    width: 15%;
+    float: left;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    text-align: left;
+    padding-left: 2%;
+}
+
+
+.main-contex-div {
+    padding-top: 50px;
+}
+.movie-div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.movie-div img{
+    height: 500px;
+    width: 350px;
+}
+.movie-div p {
+    font-size: 18px;
+    font-style: italic;
+} */
