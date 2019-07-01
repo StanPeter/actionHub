@@ -6,6 +6,7 @@
     <title>MovieApp</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'movieApp/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'movieApp/css/app.css' %}">
 </head>
 
 <body>
@@ -26,6 +27,8 @@
         <input type="text" name="query" value="{{ request.GET.query }}">
         <input type="submit" value="search">
     </form> <hr>
+
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-create">Create</button>
     
     <div class="movies-flex-box">
 
@@ -38,6 +41,8 @@
         {% endfor %}
 
     </div>
+
+    {% include 'movieApp/create-modal.html' %}
 
 </body>
 </html>
