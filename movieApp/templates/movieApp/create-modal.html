@@ -5,26 +5,26 @@
     </div>
 
     <div>
-        <form action="" method="POST">
+        <form action="{% url 'movie_create' %}" method="POST">
             {% csrf_token %}
             <div>
                 <label for="movieName">Name</label>
-                <input type="text" id="movieName" placeholder="Enter name">
+                <input type="text" id="movieName" placeholder="Enter name" name="Name">
             </div>
 
             <div>
                 <label for="movieImage">Image</label>
-                <input type="url" id="movieImage" placeholder="Img Url">
+                <input type="url" id="movieImage" placeholder="Img Url" name="Pictures">
             </div>
 
             <div>
                 <label for="movieRating">Rating</label>
-                <input type="number" id="movieRating" placeholder="1-10" min="1" max="10">
+                <input type="number" id="movieRating" placeholder="1-10" min="1" max="10" name="Rating">
             </div>
 
             <div>
                 <label for="movieNotes">Notes</label>
-                <textarea name="" id="moiveNotes"></textarea>
+                <textarea name="" id="moiveNotes" name="Notes"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Create new movie</button>
