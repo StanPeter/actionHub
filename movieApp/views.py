@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.contrib import messages
 import os
 from airtable import Airtable
+from .appi_key import AIRTABLE_API_KEY, AIRTABLE_BASE_ID, TABLE_NAME
 
 
-os.environ['AIRTABLE_API_KEY']='keyEWA5dgzZT3UuEq'
-AT = Airtable('appiQ5ITgJTbG4Gws', 'Movies')
+os.environ['AIRTABLE_API_KEY']= AIRTABLE_API_KEY
+AT = Airtable(AIRTABLE_BASE_ID, TABLE_NAME)
 
 #database = AT.get('Movies')['records']
 #movie_name = database['records'][i]['fields']['Name']
