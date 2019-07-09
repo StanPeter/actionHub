@@ -6,6 +6,7 @@
     <title>MovieApp</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'movieApp/css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
 </head>
 
 <body>
@@ -21,25 +22,32 @@
             </ul>
         </nav>
     </div>
+
+    <div class="main-content">
+
+        <form class="search-form" action="" name="search">
+            <input type="text" name="query" value="{{ request.GET.query }}">
+            <input type="submit" value="search" class="btn btn-primary">
+        </form> 
+        <button class="btn btn-warning" id="openModalBtn">create</button>
         
-    <form class="search-form" action="" name="search">
-        <input type="text" name="query" value="{{ request.GET.query }}">
-        <input type="submit" value="search" class="btn btn-primary">
-    </form> <hr>
-    
-    <div class="movies-flex-box">
+        <div class="movies-flex-box">
 
-        {% for movie in search_result %}
-        <div class="movies">
-            <h3>{{ movie.fields.Name }}</h3>
-            <p>{{ movie.fields.Notes }}</p>
-            <img src="{{ movie.fields.Pictures.0.url }}" alt="">    
+            {% for movie in search_result %}
+            <div class="movies">
+                <img src="{{ movie.fields.Pictures.0.url }}" alt="">    
+                <i class="far fa-star"><p>{{ movie.fields.Rating }}/10</p></i>
+                <h3>{{ movie.fields.Name }}</h3>
+                <p>{{ movie.fields.Notes }}</p>
+                
+            </div>
+            {% endfor %}
+
         </div>
-        {% endfor %}
-
+        {% include 'movieApp/create-modal.html' %}
+        
     </div>
-
-    {% include 'movieApp/create-modal.html' %}
-
+    
+    <script src="{% static 'movieApp/js/main.js' %}"></script>
 </body>
 </html>

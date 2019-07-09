@@ -20,7 +20,7 @@ def home_page(request):
     search_result = AT.get_all(formula="FIND('" + user_query.lower() + "',LOWER({Name}))")
     stuff_for_frontend = {'search_result':search_result}
     return render(request, 'movieApp/index.html', stuff_for_frontend)
-
+    
 def movie_create(request):
     if request.method == 'POST':
         new_movie = {
@@ -32,7 +32,7 @@ def movie_create(request):
         AT.insert(new_movie)
     return redirect('/')
 
-
+        
 
 """
 for i in range(len(database)):

@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+/*@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+*/
 
 body {
-    font-family: 'Raleway', sans-serif;
-    width: 90%;
     background-image: url("https://cdn.pixabay.com/photo/2017/03/02/08/58/background-texture-2110724__340.jpg");
     background-blend-mode: lighten;
     background-size: cover;
@@ -12,7 +11,7 @@ body {
     width: 100%;
     height: 80px;
     background-color: rgb(111, 116, 113);
-    margin: 10px 5px 40px;
+    margin: 10px 5px 50px;
 }
 .nav-logo {
     float: left;
@@ -24,7 +23,7 @@ body {
     display: block;
     text-transform: uppercase;
     letter-spacing: 1px;
-    line-height: 70px;
+    line-height: 80px;
     padding-left: 10px;
 }
 .nav-menu li{
@@ -45,110 +44,76 @@ body {
 .nav-menu li a:hover {
     color: rgb(117, 181, 192);
 }
+.main-content {
+    margin: 0px 30px;
+}
 .search-form {
     margin: 50px 0px; 
 }
 .movies-flex-box {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 4px;
+    padding: 20px 10px;
+}
+.movies {
+    width: 33.33333%;
+    position: relative;
+}
+.movies h3{
+    color: black;
+	background: white;
+    text-align: center;
+    font-family: Anton;
+    margin-top: -3px;
+    padding: 8px;
 }
 .movies img{
-    height: 500px;
-    width: 350px;
+	width: 100%;
+    height: 600px;
 }
-/*
-*{
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-body {
-    background-image: url(https://banner2.kisspng.com/20180320/gue/kisspng-cinematography-film-photography-seat-hd-png-transparent-background-movie-theatre-5ab19541e1d9f5.1941890415215875219251.jpg);
-    background-size: cover;
-    height: 100vh;
-}
-.nav-menu li a {
-    text-decoration: none;
-    color: #fff;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-    padding:0 25px;
-    font-size: 18px;
-    line-height: 30px;
-    position: relative;
-    z-index: 1; 
-}
-.nav-menu li {
-    list-style: none;
-}
-.nav-menu li a:hover {
-    background: tomato;
-    color: #fff;
-}
-.nav-bar {
-    margin-bottom: 50px;
-    background-color: rgb(41, 33, 33);
-}
-.nav-bar {
-    padding-top: 25px;
-}
-nav {
-    position: relative;
-    padding: 10px 20px 10px 10px;
-    text-align: right;
+.movies i{
     z-index: 1;
-    background: #333;
-    margin: 0 auto;
-    width: calc(100% - 60px);
+    color: #FAAA2B;
+    top: 20%;
+    font-size: 4rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
-nav::before {
-    position: relative;
-    content: '';
+.movies i p {
+    z-index: 1;
+    font-size: 5rem;
+    font-family: Anton, sans-serif;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 85% !important;
+}
+.modal-movie{
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
     left: 0;
-    top: 100%;
-    border-top: 10px solid #333;
-    border-right: 10px solid #333;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
 }
-nav::after {
-    right: 0;
-    top: 100%;
-    position: relative;
-    content: '';
-    border-top: 10px solid #333;
-    border-right: 10px solid #333;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-}
-.logo{
-    width: 15%;
-    float: left;
-    text-transform: uppercase;
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    text-align: left;
-    padding-left: 2%;
-}
+.modal-content{
+    background-color: silver;
+    margin: 20% auto;
+    width: 50%;
+    padding: 30px;
 
-
-.main-contex-div {
-    padding-top: 50px;
 }
-.movie-div {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.close {
+    float: right;
+    font-size: 2rem;
 }
-.movie-div img{
-    height: 500px;
-    width: 350px;
+.close :hover, .close:focus {
+    cursor: pointer;
+    text-decoration: none;
+    color: red;
 }
-.movie-div p {
-    font-size: 18px;
-    font-style: italic;
-} */
