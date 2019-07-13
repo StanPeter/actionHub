@@ -90,6 +90,13 @@ body {
     left: 50%;
     top: 85% !important;
 }
+.movies button{
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
 .modal-movie{
     display: none;
     position: fixed;
@@ -108,11 +115,11 @@ body {
     padding: 30px;
 
 }
-.close {
+.Close {
     float: right;
     font-size: 2rem;
 }
-.close :hover, .close:focus {
+.Close :hover, .Close:focus {
     cursor: pointer;
     text-decoration: none;
     color: red;

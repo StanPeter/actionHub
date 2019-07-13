@@ -1,0 +1,38 @@
+<div id="edit-modal-{{movie.id}}" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Edit {{movie.fields.Name}}</h5>
+                <button class="close" id="closeModalBtn" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="{% url 'movie_edit' id=movie.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="movieName">Name</label>
+                        <input type="text" placeholder="Enter name" id="movieName" value="{{movie.fields.Name}}" name="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="movieImage">Image</label>
+                        <input type="url" placeholder="Img Url" id="movieImage" value="{{movie.fields.Pictures.0.url}}" name="Pictures" >
+                    </div>
+                    <div class="form-group">
+                        <label for="movieRating">Rating</label>
+                        <input type="number" placeholder="1-10" min="1" max="10" id="movieRating" value="{{movie.fields.Rating}}" name="Rating">
+                    </div>
+                    <div class="form-group">
+                        <label for="movieNotes">Notes</label>
+                        <textarea name="Notes" id="movieNotes" value="{{movie.fields.Notes}}" name="Notes"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">update</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

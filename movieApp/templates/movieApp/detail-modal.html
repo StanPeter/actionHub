@@ -1,0 +1,19 @@
+<div id="modal-detail-movie" class="modal-movie">
+    <div class="modal-content">
+        <div>
+            <h4> {{ movie.fields.Name }} </h4>
+            <button type="button" class="Close" id="closeDetail">
+                <span>&times;</span>
+            </button>
+        </div>
+        <div>
+            <img src="{{ movie.fields.Pictures.0.url }}" alt="">
+            <i class="far fa-star"><p> {{ movie.fields.Rating }}/10 </p></i>
+            <p> {{ movie.fields.Notes }} </p>
+            <p> {{ movie.id }} </p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal-{{movie.id}}">Edit</button>
+            
+            <a href="{% url 'movie_delete' id=movie.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete {{movie.fields.Name}} movie?')">Delete</a>
+        </div>
+    </div>
+</div>

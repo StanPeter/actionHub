@@ -1,8 +1,8 @@
-// get button to open Modal 
+// get button to open create-modal.html
 var openModalBtn = document.getElementById('openModalBtn');
-// get button to close Modal
+// get button to close create-modal.html
 var closeModalBtn = document.getElementById('closeModalBtn');
-// get modal element
+// get modal element 
 var modal = document.getElementById('modal-create-movie');
 
 // open Modal event 
@@ -22,5 +22,28 @@ function closeModal() {
 function outsideClick(e) {
     if(e.target == modal){
         modal.style.display = 'none';
+    }
+}
+
+// js for detail-modal.html
+// code written again to practise
+var openDetail = document.getElementById('openDetail');
+var closeDetail = document.getElementById('closeDetail');
+var modalDetail = document.getElementById('modal-detail-movie');
+
+openDetail.addEventListener('click', detailOpen);
+closeDetail.addEventListener('click', detailCLose);
+modalDetail.addEventListener('click', clickOutside);
+
+function detailOpen() {
+    console.log('opening detail');
+    modalDetail.style.display = 'block';
+}
+function detailCLose() {
+    modalDetail.style.display = 'none';
+}
+function clickOutside(e) {
+    if(e.target == modalDetail){
+        modalDetail.style.display = 'none';
     }
 }
