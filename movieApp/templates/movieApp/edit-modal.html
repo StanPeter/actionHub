@@ -14,7 +14,7 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="movieName">Name</label>
-                        <input type="text" placeholder="Enter name" id="movieName" value="{{movie.fields.Name}}" name="Name">
+                        <input type="text" placeholder="Enter name" id="movieName" value="{{movie.fields.Name}}" name="Name" required>
                     </div>
                     <div class="form-group">
                         <label for="movieImage">Image</label>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="movieRating">Rating</label>
-                        <input type="number" placeholder="1-10" min="1" max="10" id="movieRating" value="{{movie.fields.Rating}}" name="Rating">
+                        <input type="number" placeholder="1-10" min="1" max="10" id="movieRating" value="{{movie.fields.Rating}}" name="Rating" required>
                     </div>
                     <div class="form-group">
                         <label for="movieNotes">Notes</label>

@@ -2,3 +2,4 @@ env*
 .vscode*
 .env*
 appi_key*
+__pycache__/

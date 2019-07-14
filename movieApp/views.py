@@ -24,27 +24,40 @@ def home_page(request):
 def movie_create(request):
     if request.method == 'POST':
         data = {
-            'Name': request.POST.get('Name'),
-            'Notes': request.POST.get('Notes'),
-            'Pictures': [{'url': request.POST.get('Pictures')}],
-            'Rating': int(request.POST.get('Rating'))
-                }
-        AT.insert(data)
+        'Name': request.POST.get('Name'),
+        'Notes': request.POST.get('Notes'),
+        'Pictures': [{'url': request.POST.get('Pictures') or 'https://www.harpersphoto.co.uk/user/products/large/no%20image.gif'}],
+        'Rating': int(request.POST.get('Rating'))
+            }
+        try:
+            AT.insert(data)
+            messages.success(request, 'Added succefully movie {}'.format(request.POST.get('Name')))
+        except Exception:
+            messages.warning(request, 'Creation of movie {} wasn\'t completed due to {}'.format(request.POST.get('Name')), Exception)
     return redirect('/')
 
 def movie_edit(request, id):
     if request.method == 'POST':
-            data = {
-            'Name':request.POST.get('Name'), 
-            'Pictures':[{'url':request.POST.get('Pictures')}],
-            'Rating':int(request.POST.get('Rating')),
-            'Notes':request.POST.get('Notes')
-            }
+        data = {
+        'Name':request.POST.get('Name'), 
+        'Pictures':[{'url':request.POST.get('Pictures')}],
+        'Rating':int(request.POST.get('Rating')),
+        'Notes':request.POST.get('Notes')
+        }
+
+        try:
             AT.update(id, data)
+            messages.success(request, 'Edited succefully movie {}'.format(request.POST.get('Name')))
+        except Exception:
+            messages.warning(request, 'Editation of {} movie wasn\'t succesful due to {}'.format(request.POST.get('Name')), Exception)
     return redirect('/')
 
 def movie_delete(request, id):
+    movie_name = AT.get(id)['fields']['Name']
     AT.delete(id)
+
+    messages.warning(request, 'Deleted succefully movie {}'.format(movie_name))
     return redirect('/')
+        
         
         
