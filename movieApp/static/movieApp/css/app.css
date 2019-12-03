@@ -73,14 +73,15 @@ body::before {
 }
 
 /* section movies */
-.result {
-    background-image: linear-gradient(#1E1E1E 0%, #000 100%);
-    height: auto;
+.movie-container {
+    background: #2f2b2b;
+    padding: 2% 0 5%;
 }
 
 .modal-title {
     font-family: 'Baskervville', serif;    
     color: black;
+    font-size: 1.55rem;
 }
 
 /* movie items */
@@ -96,6 +97,10 @@ body::before {
     width: 33.33333%;
     border-radius: 4px;
     position: relative;
+}
+
+.movie-item {
+    border: 0.04rem solid #fbad41;
 }
 
 .movie-item-modal.full-width {
@@ -193,6 +198,32 @@ body::before {
 .movie-expander:hover {
 	background: #FCAB07;
     cursor: pointer;
+}
+
+/* footer container */
+.footer-container {
+    background: #1e1e1e;
+    color: #909090;
+    padding: 2% 15%;
+    text-align: center;
+}
+
+.footer-container h2 {
+    color: #dadada;
+    font-family: 'Baskervville', serif; 
+    font-size: 1.5rem;   
+}
+
+.footer-container i {
+    padding: 1% 1% 2%;
+}
+
+.footer-container i:hover {
+    cursor: pointer;
+}
+
+.footer-container p {
+    margin-bottom: 0;
 }
 
 /* media queries */
