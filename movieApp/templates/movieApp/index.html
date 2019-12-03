@@ -1,53 +1,112 @@
-{% extends 'movieApp/base.html' %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                <a href="#" class="close" data-dismiss="alert"></a>
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
+<html>
 
+<head>
+    <title>MovieApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <link rel="stylesheet" href="{% static 'movieApp/css/app.css' %}">
+</head>
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                <a href="#" class="close" data-dismiss="alert"></a>
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
+<body>
 
-    <div class="main-content">
-
-        <form class="search-form" action="" name="search">
-            <input type="text" name="query" value="{{ request.GET.query }}">
-            <input type="submit" value="search" class="btn btn-primary">
-        </form> 
-        <button class="btn btn-warning" id="openModalBtn">create</button>
-        
-        <div class="movies-flex-box">
-
-            {% for movie in search_result %}
-
-                <div class="movies">
-                    <img src="{{ movie.fields.Pictures.0.url }}" alt="">    
-                    <i class="far fa-star"><p>{{ movie.fields.Rating }}/10</p></i>
-                    <h3>{{ movie.fields.Name }}</h3>
-                    <button class="btn btn-warning" id="openDetail">Detail</button>
-                    <p> {{ movie.id }} </p>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="container">
+                <div class="nav__menu">
+                    <a class="nav__header" href="/">Clever Movie</a>
+                    <div class="col-md-5 pull-right">
+                        <form name="search" action="" class="form-inline">
+                            <div class="form-group">
+                                <input type="text" name="query" class="form-control" value="{{request.GET.query}}" />
+                                <input type="submit" class="btn btn-primary" value="Search" />
+                            </div>
+                        </form>
+                    </div>
+    
+                    <button type="button" class="btn btn-primary pull-right" data-toggle="modal"
+                        data-target="#modal-create">Create</button>
                 </div>
+            </div>
+        </nav>
+    
+        <section class="result">
+            <div class="container">
+    
+                <!-- Show notifications (if any) -->
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+    
+                <!-- Show all movies -->
+                <div class="movies">
+                    {% for movie in search_result %}
+                    <div class="movies__item">
+                        <i class="movies__item-star fa fa-star hide"></i>
+                        <p class="movies__item-rating hide">{{ movie.fields.Rating }}/10</p>
+                        <button type="button" class="movies__item-expander hide" data-toggle="modal"
+                            data-target="#modal-{{movie.id}}">View Details</button>
+                        <img class="movies__item-image" src="{{ movie.fields.Pictures.0.url }}" alt="" />
+                        <div class="movies__item-title">
+                            <p>{{ movie.fields.Name }}</p>
+                        </div>
+                    </div>
+    
+                    {% include 'movieApp/detail-modal.html' %}
+                    {% include 'movieApp/edit-modal.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    {% include "movieApp/create-modal.html" %}
 
-                {% include 'movieApp/edit-modal.html' %}
-                {% include 'movieApp/detail-modal.html' %}
-            {% endfor %}
 
-        </div>
-        {% include 'movieApp/create-modal.html' %}
-        
+    
+
+    <div class="footer-wrapper">
+        <footer class="footer">
+            <div class="footer-info">
+                <ul></ul>
+            </div>
+            <hr>
+            <ul>
+                <li>
+                    <p>Copyright @ {% now 'Y'%} watchMOVIES-ONLINE. All rights reserved</p>
+                </li>
+                <li>
+                    <p>Privacy Policy</p>
+                </li>
+                <li>
+                    <p>Contact</p>
+                </li>
+            </ul>
+        </footer>
     </div>
 
-{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="{% static 'movieApp/js/app.js' %}"></script>
+</body>
+
+</html>
+

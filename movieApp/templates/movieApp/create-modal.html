@@ -1,38 +1,40 @@
-<div id="modal-create-movie" class="modal-movie">
-    <div class="modal-content">
+<div class="modal fade" id="modal-create">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{% url 'movie_create' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="movieName">Name</label>
+                        <input type="text" class="form-control" id="movieName" placeholder="Enter name" name="Name" required>
+                    </div>
 
-        <div style="padding-bottom: 10px;">
-            <h5 style="float: left;">Create</h5>
-            <button type="button" class="Close" id="closeModalBtn"><span>&times;</span></button>    
+                    <div class="form-group">
+                        <label for="moviePicture">Picture</label>
+                        <input type="text" class="form-control" id="moviePicture" placeholder="Image URL" name="Pictures" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="movieRating">Rating</label>
+                        <input type="number" class="form-control" id="movieRating" placeholder="1-10" name="Rating"
+                            min="1" max="10" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="movieNotes">Notes</label>
+                        <textarea name="Notes" id="movieNotes" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create new movie</button>
+
+                </form>
+            </div>
         </div>
-        
-        
-        <form action="{% url 'movie_create' %}" method="POST">
-            {% csrf_token %}
-            <div>
-                <label for="movieName">Name</label>
-                <input type="text" id="movieName" placeholder="Enter name" name="Name" required>
-            </div>
-
-            <div>
-                <label for="movieImage">Image</label>
-                <input type="url" id="movieImage" placeholder="Img Url" name="Pictures">
-            </div>
-
-            <div>
-                <label for="movieRating">Rating</label>
-                <input type="number" id="movieRating" placeholder="1-10" min="1" max="10" name="Rating" required>
-            </div>
-
-            <div>
-                <label for="movieNotes">Notes</label>
-                <textarea name="Notes" id="moiveNotes" name="Notes"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Create new movie</button>
-        </form>
-    
-        
     </div>
 </div>
-

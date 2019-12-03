@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+html {
+    font-size: 16px;
+}
+
 body::before {
     position: absolute;
     top: 0;
@@ -254,4 +258,8 @@ body::before {
     .movies__item {
         width: 100%;
     }
+}
+
+.movies__item.full-width {
+    width: 100%;
 }

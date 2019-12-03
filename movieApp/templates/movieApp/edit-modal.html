@@ -1,38 +1,43 @@
-<div id="edit-modal-{{movie.id}}" class="modal fade">
+
+<div class="modal fade" id="edit-modal-{{movie.id}}">
     <div class="modal-dialog">
         <div class="modal-content">
-
             <div class="modal-header">
-                <h5 class="modal-title">Edit {{movie.fields.Name}}</h5>
-                <button class="close" id="closeModalBtn" data-dismiss="modal">
-                    <span>&times;</span>
-                </button>
+                <h5 class="modal-title" id="editModal">{{ movie.fields.Name}}</h5>
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
-
             <div class="modal-body">
-                <form action="{% url 'movie_edit' id=movie.id %}" method="POST">
+                <form action="{% url 'movie_edit' id=movie.id %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="movieName">Name</label>
-                        <input type="text" placeholder="Enter name" id="movieName" value="{{movie.fields.Name}}" name="Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="movieImage">Image</label>
-                        <input type="url" placeholder="Img Url" id="movieImage" value="{{movie.fields.Pictures.0.url}}" name="Pictures" >
-                    </div>
-                    <div class="form-group">
-                        <label for="movieRating">Rating</label>
-                        <input type="number" placeholder="1-10" min="1" max="10" id="movieRating" value="{{movie.fields.Rating}}" name="Rating" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="movieNotes">Notes</label>
-                        <textarea name="Notes" id="movieNotes" value="{{movie.fields.Notes}}" name="Notes"></textarea>
+                        <label for="editName">Name</label>
+                        <input type="text" class="form-control" id="movieName" placeholder="Enter name" name="Name"
+                            value="{{ movie.fields.Name }}" required />
                     </div>
 
-                    <button type="submit" class="btn btn-primary">update</button>
+                    <div class="form-group">
+                        <label for="editURL">Image URL</label>
+                        <input type="text" class="form-control" id="movieImage" placeholder="url" name="Pictures"
+                            value="{{movie.fields.Pictures.0.url}}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editRating">Rating</label>
+                        <input type="number" class="form-control" id="movieRating" placeholder="1-10" name="Rating"
+                            value="{{movie.fields.Rating}}" min="1" max="10" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editNotes">Notes</label>
+                        <textarea class="form-control" id="movieNotes" placeholder="Add notes" name="Notes"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update</button>
+
                 </form>
             </div>
-
         </div>
     </div>
 </div>
+
+
