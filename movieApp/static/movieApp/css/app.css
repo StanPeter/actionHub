@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Baskervville&display=swap');
 
 * {
     box-sizing: border-box;
@@ -22,6 +23,39 @@ body::before {
 }
 
 /* global styles */
+
+
+.navbar {
+    background: #1E1E1E;
+    padding: 3.5% 6%;
+    justify-content: normal;
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    font-family: 'Anton', sans-serif;
+}
+
+
+.nav-item-form {
+    margin: 0 10% 0 15%;
+}
+
+.nav-item-button {
+    padding: .5rem 1.15rem;
+}
+
+.header-container {
+    padding: 7% 15%;
+    background: #1E1E1E;
+    color: #fff;
+}
+
+
+
+
 
 .show {
     display: block !important;
@@ -60,16 +94,6 @@ body::before {
     font-family: Anton, sans-serif;
 }
 
-.nav__header {
-    margin-right: 2rem;
-    margin-left: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    font-family: 'Anton', sans-serif;
-    color: #fff;
-    font-size: 2rem;
-    text-decoration: none;
-}
 
 .search-form {
     padding: 5rem;
@@ -125,14 +149,14 @@ body::before {
     position: relative;
 }
 
-.movies__item-title {
+.movie-name {
     border-right: 1px solid #eee;
     border-left: 1px solid #eee;
     color: black;
 	background: white;
     text-align: center;
     padding: 1rem;
-    font-family: Anton;
+    font-family: 'Baskervville', serif;    
     margin-top: -3px;
 }
 
@@ -232,6 +256,15 @@ body::before {
 
 }
 
+@media only screen and (max-width: 980px) {
+    .nav-item-button {
+        padding: .375rem .75rem;
+    }
+    .nav-item-form {
+        margin: 0 5% 0 3%;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     html {
         font-size: 14px;
@@ -243,6 +276,26 @@ body::before {
 
     .movies__item-image {
         height: 60vw;
+    }
+    .navbar-brand {
+        font-size: 2em;
+    }
+}
+
+
+@media only screen and (max-width: 590px) {
+    .nav-item-input {
+        width: 70% !important;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .nav-item-input {
+        width: 82% !important;
+    }
+    .nav-responsive-button {
+        width: 86%;
+        margin-left: 1.3rem;
     }
 }
 
@@ -263,3 +316,4 @@ body::before {
 .movies__item.full-width {
     width: 100%;
 }
+
