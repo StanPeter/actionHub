@@ -1,41 +1,18 @@
-function modal() {
-    $("#modal-trigger").animatedModal({
-        modalTarget:'js-modal',
-        animatedIn:'lightSpeedIn',
-        animatedOut:'bounceOutDown',
-        color:'#3498db',
-        // Callbacks
-        beforeOpen: function() {
-            console.log("The animation was called");
-        },
-        afterOpen: function() {
-            console.log("The animation is completed");
-        },
-        beforeClose: function() {
-            console.log("The animation was called");
-        },
-        afterClose: function() {
-            console.log("The animation is completed");
-        }
-    });
-}
-
+//change movie-item brightness on hover
 function main() {
-    $('.movies__item').hover(function() {
-        $(this).find('.movies__item-image').css({"filter": "brightness(20%)"});
-        $(this).find('.movies__item-star').toggleClass('hide');
-        $(this).find('.movies__item-rating').toggleClass('hide');
-        $(this).find('.movies__item-expander').toggleClass('hide');
-        $(this).find('.movies__item-delete-button').toggleClass('hide');
+    $('.movie-item').hover(function() {
+        $(this).find('.movie-image').css({"filter": "brightness(20%)"});
+        $(this).find('.movie-star').toggleClass('hide');
+        $(this).find('.movie-rating').toggleClass('hide');
+        $(this).find('.movie-expander').toggleClass('hide');
+        $(this).find('.movie-delete-button').toggleClass('hide');
     }, function() {
-        $(this).find('.movies__item-image').css({"filter": "brightness(100%)"});
-        $(this).find('.movies__item-star').toggleClass('hide');
-        $(this).find('.movies__item-rating').toggleClass('hide');
-        $(this).find('.movies__item-expander').toggleClass('hide');
-        $(this).find('.movies__item-delete-button').toggleClass('hide');
+        $(this).find('.movie-image').css({"filter": "brightness(100%)"});
+        $(this).find('.movie-star').toggleClass('hide');
+        $(this).find('.movie-rating').toggleClass('hide');
+        $(this).find('.movie-expander').toggleClass('hide');
+        $(this).find('.movie-delete-button').toggleClass('hide');
     });
-
-    modal();
 }
 
 $(document).ready(main());

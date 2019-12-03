@@ -1,19 +1,25 @@
 {% load static %}
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
-    <title>MovieApp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- required metas -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- fontawesome css -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <!-- animate css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+    <!-- custom css -->
     <link rel="stylesheet" href="{% static 'movieApp/css/app.css' %}">
-</head>
 
+    <title>MovieApp</title>
+
+</head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark">
         <a class="navbar-brand" href=" {% url 'home_page' %} ">Action Hub</a>       
@@ -34,7 +40,7 @@
         </div>
     </nav>
     
-   
+   <!-- section with movies -->
     <section class="result">
         <div class="container">
 
@@ -51,12 +57,12 @@
             <!-- Show all movies -->
             <div class="movies">
                 {% for movie in search_result %}
-                <div class="movies__item">
-                    <i class="movies__item-star fa fa-star hide"></i>
-                    <p class="movies__item-rating hide">{{ movie.fields.Rating }}/10</p>
-                    <button type="button" class="movies__item-expander hide" data-toggle="modal"
+                <div class="movie-item">
+                    <i class="movie-star fa fa-star hide"></i>
+                    <p class="movie-rating hide">{{ movie.fields.Rating }}/10</p>
+                    <button type="button" class="movie-expander hide" data-toggle="modal"
                         data-target="#modal-{{movie.id}}">View Details</button>
-                    <img class="movies__item-image" src="{{ movie.fields.Pictures.0.url }}" alt="" />
+                    <img class="movie-image" src="{{ movie.fields.Pictures.0.url }}" alt="" />
                     <div class="movie-name">
                         <p>{{ movie.fields.Name }}</p>
                     </div>
@@ -66,13 +72,12 @@
                 {% include 'movieApp/edit-modal.html' %}
                 {% endfor %}
             </div>
+
         </div>
     </section>
-
     
+
     {% include "movieApp/create-modal.html" %}
-
-
     
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
