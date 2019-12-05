@@ -7,7 +7,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="{% url 'movie_edit' id=movie.id %}" method="post">
+                <form action="{% url 'edit' id=movie.id %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="editName">Name</label>
@@ -29,7 +29,7 @@
 
                     <div class="form-group">
                         <label for="editNotes">Notes</label>
-                        <textarea class="form-control" id="movieNotes" placeholder="Add notes" name="Notes"></textarea>
+                        <textarea class="form-control" id="movieNotes" rows="5" placeholder="Add notes" name="Notes">{{ movie.fields.Notes }}</textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update</button>

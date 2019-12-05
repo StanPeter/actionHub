@@ -5,37 +5,41 @@ from airtable import Airtable
 from .appi_key import AIRTABLE_API_KEY, AIRTABLE_BASE_ID, TABLE_NAME
 
 
+#connecting to the database
 os.environ['AIRTABLE_API_KEY']= AIRTABLE_API_KEY
 AT = Airtable(AIRTABLE_BASE_ID, TABLE_NAME)
 
 
-# Create your views here.
-
-def home_page(request):
+#view for index route
+def index(request):
+    #getting user's input from the search form
     user_query = str(request.GET.get('query', ''))
-    # pulls information from our query (index.html)  
-    search_result = AT.get_all(formula="FIND('" + user_query.lower() + "',LOWER({Name}))")
-    stuff_for_frontend = {'search_result':search_result}
-    return render(request, 'movieApp/index.html', stuff_for_frontend)
+    #get all matched movies from the database  
+    matched_movies = AT.get_all(formula="FIND('" + user_query.lower() + "',LOWER({Name}))")
+    #send data to the front end
+    movies = {'movies':matched_movies}
+    return render(request, 'movieApp/index.html', movies)
     
-def movie_create(request):
+#view for new/create route
+def create(request):
     if request.method == 'POST':
-        data = {
+        new_movie = {
         'Name': request.POST.get('Name'),
         'Notes': request.POST.get('Notes'),
-        'Pictures': [{'url': request.POST.get('Pictures') or 'https://www.harpersphoto.co.uk/user/products/large/no%20image.gif'}],
+        'Pictures': [{'url': request.POST.get('Pictures') or 'https://logox.com/logox/uploads/noimage300X300.jpg'}],
         'Rating': int(request.POST.get('Rating'))
             }
         try:
-            AT.insert(data)
+            AT.insert(new_movie)
             messages.success(request, 'Added succefully movie {}'.format(request.POST.get('Name')))
         except Exception:
             messages.warning(request, 'Creation of movie {} wasn\'t completed due to {}'.format(request.POST.get('Name')), Exception)
     return redirect('/')
 
-def movie_edit(request, id):
+#view for edit route
+def edit(request, id):
     if request.method == 'POST':
-        data = {
+        edited_movie = {
         'Name':request.POST.get('Name'), 
         'Pictures':[{'url':request.POST.get('Pictures')}],
         'Rating':int(request.POST.get('Rating')),
@@ -43,13 +47,14 @@ def movie_edit(request, id):
         }
 
         try:
-            AT.update(id, data)
+            AT.update(id, edited_movie)
             messages.success(request, 'Edited succefully movie {}'.format(request.POST.get('Name')))
         except Exception:
             messages.warning(request, 'Editation of {} movie wasn\'t succesful due to {}'.format(request.POST.get('Name')), Exception)
     return redirect('/')
 
-def movie_delete(request, id):
+#view for destroy route
+def delete(request, id):
     movie_name = AT.get(id)['fields']['Name']
     AT.delete(id)
 

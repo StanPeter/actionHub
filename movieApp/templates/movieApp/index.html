@@ -22,7 +22,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark">
-        <a class="navbar-brand" href=" {% url 'home_page' %} ">Action Hub</a>       
+        <a class="navbar-brand" href=" {% url 'index' %} ">Action Hub</a>       
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@
 
             <!-- Show all movies -->
             <div class="movies">
-                {% for movie in search_result %}
+                {% for movie in movies %}
                 <div class="movie-item">
                     <i class="movie-star fa fa-star hide"></i>
                     <p class="movie-rating hide">{{ movie.fields.Rating }}/10</p>
@@ -67,8 +67,8 @@
                         <p>{{ movie.fields.Name }}</p>
                     </div>
                 </div>
-
-                {% include 'movieApp/detail-modal.html' %}
+                
+                {% include 'movieApp/show-modal.html' %}
                 {% include 'movieApp/edit-modal.html' %}
                 {% endfor %}
             </div>

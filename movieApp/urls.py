@@ -3,12 +3,13 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.home_page, name='home_page'),
-    
-    path('create/', views.movie_create, name='movie_create'),
-
-    path('detail/<str:id>/edit', views.movie_edit, name="movie_edit"),
-
-    path('detail/<str:id>/delete/', views.movie_delete, name='movie_delete'),
+    #index route for movies
+    path('', views.index, name='index'),
+    #new/create route for movies
+    path('create/', views.create, name='create'),
+    #edit/update route for movies
+    path('detail/<str:id>/edit', views.edit, name="edit"),
+    #destroy route for movies
+    path('detail/<str:id>/delete/', views.delete, name='delete'),
 ]
 

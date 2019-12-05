@@ -10,7 +10,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="{% url 'movie_create' %}" method="post">
+                <form action="{% url 'create' %}" method="post">
                     
                     {% csrf_token %}
                     <div class="form-group">
@@ -31,7 +31,7 @@
 
                     <div class="form-group">
                         <label for="movieNotes">Notes</label>
-                        <textarea name="Notes" id="movieNotes" class="form-control"></textarea>
+                        <textarea name="Notes" rows="5" id="movieNotes" class="form-control"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Create new movie</button>
