@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 import os
 from airtable import Airtable
-from .appi_key import AIRTABLE_API_KEY, AIRTABLE_BASE_ID, TABLE_NAME
-
+#from env import *
 
 #connecting to the database
-os.environ['AIRTABLE_API_KEY']= AIRTABLE_API_KEY
-AT = Airtable(AIRTABLE_BASE_ID, TABLE_NAME)
+AIRTABLE_BASE_ID = os.environ['AIRTABLE_BASE_ID']
+TABLE_NAME = os.environ['TABLE_NAME']
+AIRTABLE_API_KEY = os.environ['AIRTABLE_API_KEY']
+
+AT = Airtable(AIRTABLE_BASE_ID, TABLE_NAME, api_key=AIRTABLE_API_KEY)
 
 
 #view for index route
