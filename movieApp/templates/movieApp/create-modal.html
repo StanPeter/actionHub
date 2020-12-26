@@ -11,16 +11,18 @@
 
             <div class="modal-body">
                 <form action="{% url 'create' %}" method="post">
-                    
+
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="movieName">Name</label>
-                        <input type="text" class="form-control" id="movieName" placeholder="Enter name" name="Name" required>
+                        <input type="text" class="form-control" id="movieName" placeholder="Enter name" name="Name"
+                            required>
                     </div>
 
                     <div class="form-group">
                         <label for="moviePicture">Picture</label>
-                        <input type="text" class="form-control" id="moviePicture" placeholder="Image URL" name="Pictures" />
+                        <input type="text" class="form-control" id="moviePicture" placeholder="Image URL"
+                            name="Pictures" />
                     </div>
 
                     <div class="form-group">

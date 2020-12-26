@@ -2,14 +2,15 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- required metas -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- fontawesome css -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
     <!-- animate css -->
@@ -20,28 +21,33 @@
     <title>MovieApp</title>
 
 </head>
+
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark">
-        <a class="navbar-brand" href=" {% url 'index' %} ">Action Hub</a>       
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href=" {% url 'index' %} ">Action Hub</a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
+
             <form class="form-inline my-2 my-lg-0 nav-item-form">
-                <input type="text" name="query" class="form-control mx-2 nav-item-input" value="{{request.GET.query}}" />
-                <button class="btn btn-primary my-2 my-sm-0 nav-item-button" type="submit"><i class="fas fa-search"></i></button>
+                <input type="text" name="query" class="form-control mx-2 nav-item-input"
+                    value="{{request.GET.query}}" />
+                <button class="btn btn-primary my-2 my-sm-0 nav-item-button" type="submit"><i
+                        class="fas fa-search"></i></button>
             </form>
-            
-            <button type="button" class="btn btn-primary nav-item-button nav-responsive-button" data-toggle="modal" data-target="#modal-create">Create</button>
-        
+
+            <button type="button" class="btn btn-primary nav-item-button nav-responsive-button" data-toggle="modal"
+                data-target="#modal-create">Create</button>
+
         </div>
     </nav>
-    
-   <!-- section with movies -->
-    <section class="movie-container"> 
+
+    <!-- section with movies -->
+    <section class="movie-container">
         <div class="container">
 
             <!-- Show notifications (if any) -->
@@ -67,7 +73,7 @@
                         <p>{{ movie.fields.Name }}</p>
                     </div>
                 </div>
-                
+
                 {% include 'movieApp/show-modal.html' %}
                 {% include 'movieApp/edit-modal.html' %}
                 {% endfor %}
@@ -75,7 +81,7 @@
 
         </div>
     </section>
-    
+
 
     <footer>
         <div class="footer-container">
@@ -85,25 +91,24 @@
             <i class="fab fa-instagram"></i>
             <i class="fab fa-linkedin"></i>
             <i class="fas fa-envelope"></i>
-    
+
             <p>Copyright Action Hub © 2019. All rights reserved.</p>
         </div>
     </footer>
 
     {% include "movieApp/create-modal.html" %}
-    
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="{% static 'movieApp/js/app.js' %}"></script>
 </body>
 
 </html>
-
