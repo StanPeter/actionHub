@@ -7,6 +7,8 @@ Information:
 
     On FE using HTML5, css3 and some JS.
 
+    deployed on https://obscure-reaches-42306.herokuapp.com/
+
 
 
 Instructions: (commands for Windows might differ)
